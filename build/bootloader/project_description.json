@@ -1,0 +1,21 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/Users/celsoluiz81/Embedded/workstation/build/bootloader",
+    "config_file":        "/Users/celsoluiz81/Embedded/workstation/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4.2",
+    "target":             "esp32",
+    "rev":                "0",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/Users/celsoluiz81/Embedded/esp/esp-idf/components/efuse/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp32/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_common/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_system/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/log/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/newlib/Kconfig;/Users/celsoluiz81/Embedded/esp/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader/Kconfig.projbuild;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_rom/Kconfig.projbuild;/Users/celsoluiz81/Embedded/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader_support", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/efuse", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp32", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_common", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_rom", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_system", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/esptool_py", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/log", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader/subproject/main", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/newlib", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/soc", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/spi_flash", "/Users/celsoluiz81/Embedded/esp/esp-idf/components/xtensa", "" ]
+}
