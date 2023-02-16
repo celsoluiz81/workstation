@@ -1,0 +1,23 @@
+[1/17] Performing build step for 'bootloader'
+[1/1] cd /Users/celsoluiz81/Embedded/workstation/build/bootloader/esp-idf/esptool_py && /Users/celsoluiz81/.espressif/python_env/idf5.1_py3.9_env/bin/python /Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /Users/celsoluiz81/Embedded/workstation/build/bootloader/bootloader.bin
+Bootloader binary size 0x66c0 bytes. 0x940 bytes (8%) free.
+[2/15] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[3/15] Building C object esp-idf/comm/CMakeFiles/__idf_comm.dir/workstation_uart.c.obj
+[4/15] Building C object esp-idf/joystick/CMakeFiles/__idf_joystick.dir/workstation_joystick.c.obj
+[5/15] Building C object esp-idf/motion/CMakeFiles/__idf_motion.dir/workstation_motion.c.obj
+[6/15] Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj
+[7/15] Linking C static library esp-idf/main/libmain.a
+[8/15] Linking C static library esp-idf/comm/libcomm.a
+[9/15] Linking C static library esp-idf/joystick/libjoystick.a
+[10/15] Linking C static library esp-idf/lcd/liblcd.a
+[11/15] Linking C static library esp-idf/motion/libmotion.a
+[12/15] Generating ld/sections.ld
+[13/15] Linking CXX executable workstation.elf
+[14/15] Generating binary image from built executable
+esptool.py v4.3
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /Users/celsoluiz81/Embedded/workstation/build/workstation.bin
+[15/15] cd /Users/celsoluiz81/Embedded/workstation/build/esp-idf/esptool_py && /Users/celsoluiz81/.espressif/python_env/idf5.1_py3.9_env/bin/python /Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/celsoluiz81/Embedded/workstation/build/partition_table/partition-table.bin /Users/celsoluiz81/Embedded/workstation/build/workstation.bin
+workstation.bin binary size 0x34b20 bytes. Smallest app partition is 0x100000 bytes. 0xcb4e0 bytes (79%) free.

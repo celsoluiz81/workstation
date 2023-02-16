@@ -34,32 +34,26 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Users/celsoluiz81/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump")
+  set(CMAKE_OBJDUMP "/Users/celsoluiz81/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/mbedtls" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ FILES
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aes.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aesni.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/arc4.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aria.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/asn1.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/asn1write.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/base64.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/bignum.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/blowfish.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/bn_mul.h"
+    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/build_info.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/camellia.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ccm.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/certs.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/chacha20.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/chachapoly.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/cipher.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/cipher_internal.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/cmac.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/compat-1.3.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/config.h"
+    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/compat-2.x.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/config_psa.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/constant_time.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h"
@@ -70,39 +64,30 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ecdsa.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ecjpake.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ecp.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ecp_internal.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy_poll.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/error.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/gcm.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/havege.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/hkdf.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/hmac_drbg.h"
+    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/mbedtls_config.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md2.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md4.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md5.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md_internal.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/memory_buffer_alloc.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/net.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/net_sockets.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/nist_kw.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/oid.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/padlock.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pem.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pk.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pk_internal.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pkcs11.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pkcs12.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pkcs5.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_util.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/poly1305.h"
+    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/private_access.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/psa_util.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ripemd160.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/rsa.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/rsa_internal.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha256.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h"
@@ -110,7 +95,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cache.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ciphersuites.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cookie.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_internal.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ticket.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/threading.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/timing.h"
@@ -119,11 +103,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_crl.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_csr.h"
-    "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/xtea.h"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/psa" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ FILES
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/psa/crypto.h"
     "/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include/psa/crypto_builtin_composites.h"

@@ -1,0 +1,16 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /Users/celsoluiz81/Embedded/workstation/build/bootloader/esp-idf/esptool_py && /Users/celsoluiz81/.espressif/python_env/idf5.1_py3.9_env/bin/python /Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /Users/celsoluiz81/Embedded/workstation/build/bootloader/bootloader.bin
+Bootloader binary size 0x66c0 bytes. 0x940 bytes (8%) free.
+[2/8] Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj
+[3/8] Linking C static library esp-idf/lcd/liblcd.a
+[4/8] Linking C static library esp-idf/motion/libmotion.a
+[5/8] Generating ld/sections.ld
+[6/8] Linking CXX executable workstation.elf
+[7/8] Generating binary image from built executable
+esptool.py v4.3
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /Users/celsoluiz81/Embedded/workstation/build/workstation.bin
+[8/8] cd /Users/celsoluiz81/Embedded/workstation/build/esp-idf/esptool_py && /Users/celsoluiz81/.espressif/python_env/idf5.1_py3.9_env/bin/python /Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/celsoluiz81/Embedded/workstation/build/partition_table/partition-table.bin /Users/celsoluiz81/Embedded/workstation/build/workstation.bin
+workstation.bin binary size 0x348b0 bytes. Smallest app partition is 0x100000 bytes. 0xcb750 bytes (79%) free.

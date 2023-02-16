@@ -22,13 +22,14 @@
 #include "esp_lcd_panel_vendor.h"
 #include "esp_lcd_panel_ops.h"
 #include "esp_err.h"
-#include "lvgl.h"
+
 
 static const char *TAG = "LCD";
+int bufferSent = 0;
 
 u8g2_t u8g2; // a structure which will contain all the data for one display
 
-#define LCD_HOST  SPI2_HOST
+#define LCD_HOST  SPI3_HOST
 #define EXAMPLE_LCD_H_RES              248
 #define EXAMPLE_LCD_V_RES              64
 // Bit number used to represent command and parameter
@@ -57,11 +58,13 @@ void WorkstationLcdInit(void){
 
 	u8g2_esp32_hal.clk   = WORKSTATION_LCD_PIN_E;
 	u8g2_esp32_hal.mosi  = WORKSTATION_LCD_PIN_RW;
+  u8g2_esp32_hal.dc  = WORKSTATION_LCD_PIN_RW;
 	u8g2_esp32_hal.cs    = WORKSTATION_LCD_PIN_RS;
 	u8g2_esp32_hal.reset = WORKSTATION_LCD_PIN_RST;
+  
 	u8g2_esp32_hal_init(u8g2_esp32_hal);
 
-  u8g2_Setup_st7920_128x64_1(
+  u8g2_Setup_st7920_128x64_f(
 		&u8g2,
 		U8G2_R0,
 		u8g2_esp32_spi_byte_cb,
@@ -71,10 +74,8 @@ void WorkstationLcdInit(void){
   u8g2_InitDisplay(&u8g2); // send init sequence to the display, display is in sleep mode after this,
 
   u8g2_SetPowerSave(&u8g2, 0); // wake up display
-  */
-
-  static lv_disp_draw_buf_t disp_buf; // contains internal graphic buffer(s) called draw buffer(s)
-  static lv_disp_drv_t disp_drv;      // contains callback functions
+ */
+  
 
     ESP_LOGI(TAG, "Turn off LCD backlight");
     gpio_config_t bk_gpio_config = {
@@ -98,14 +99,15 @@ void WorkstationLcdInit(void){
   ESP_LOGI(TAG, "Install panel IO");
    esp_lcd_panel_io_handle_t io_handle = NULL;
    esp_lcd_panel_io_spi_config_t io_config = {
-       .dc_gpio_num = EXAMPLE_PIN_NUM_LCD_DC,
+       .dc_gpio_num = WORKSTATION_LCD_PIN_RW,
        .cs_gpio_num = WORKSTATION_LCD_PIN_RS,
-       .pclk_hz = EXAMPLE_LCD_PIXEL_CLOCK_HZ,
+       .pclk_hz = LCD_PIXEL_CLOCK_HZ,
        .lcd_cmd_bits = EXAMPLE_LCD_CMD_BITS,
        .lcd_param_bits = EXAMPLE_LCD_PARAM_BITS,
        .spi_mode = 0,
-       .trans_queue_depth = 10,
-       .user_ctx = &disp_drv,
+       .trans_queue_depth = 10
+   };
+
    // Attach the LCD to the SPI bus
     ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t)LCD_HOST, &io_config, &io_handle));
 
@@ -113,8 +115,10 @@ void WorkstationLcdInit(void){
    esp_lcd_panel_dev_config_t panel_config = {
        .reset_gpio_num = WORKSTATION_LCD_PIN_RST,
        .bits_per_pixel = 16,
+     };
+     // Initialize the LCD configuration
+    //ESP_ERROR_CHECK(u8x8_d_st7920_128x64(io_handle, &panel_config, &panel_handle));
 
-     }
 
      ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
@@ -123,49 +127,50 @@ void WorkstationLcdInit(void){
 
     // user can flush pre-defined pattern to the screen before we turn on the screen or backlight
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, true));
+
+    
   xTaskCreate(lcd_task, "lcd_task", 4096, NULL, 10, NULL);
 }
 
 void WorkstationLcdSetup(void){
   ESP_LOGI(TAG, "Setting up Display");
   ESP_LOGI(TAG, "Turn on LCD backlight");
-    gpio_set_level(EXAMPLE_PIN_NUM_BK_LIGHT, EXAMPLE_LCD_BK_LIGHT_ON_LEVEL);
 
-    ESP_LOGI(TAG, "Initialize LVGL library");
-    lv_init();
-    // alloc draw buffers used by LVGL
-    // it's recommended to choose the size of the draw buffer(s) to be at least 1/10 screen sized
-    lv_color_t *buf1 = heap_caps_malloc(EXAMPLE_LCD_H_RES * 20 * sizeof(lv_color_t), MALLOC_CAP_DMA);
-    assert(buf1);
-    lv_color_t *buf2 = heap_caps_malloc(EXAMPLE_LCD_H_RES * 20 * sizeof(lv_color_t), MALLOC_CAP_DMA);
-    assert(buf2);
-    // initialize LVGL draw buffers
-    lv_disp_draw_buf_init(&disp_buf, buf1, buf2, EXAMPLE_LCD_H_RES * 20);
+  ESP_ERROR_CHECK(gpio_set_direction(WORKSTATION_LCD_PIN_SWITCH,GPIO_MODE_OUTPUT)); 
+ 
+  // Turn off backlight to avoid unpredictable display on the LCD screen while initializing
+    // the LCD panel driver. (Different LCD screens may need different levels)
+    ESP_ERROR_CHECK(gpio_set_level(WORKSTATION_LCD_PIN_SWITCH, 0));
 
-    ESP_LOGI(TAG, "Register display driver to LVGL");
-    lv_disp_drv_init(&disp_drv);
-    disp_drv.hor_res = EXAMPLE_LCD_H_RES;
-    disp_drv.ver_res = EXAMPLE_LCD_V_RES;
-    disp_drv.flush_cb = example_lvgl_flush_cb;
-    disp_drv.drv_update_cb = example_lvgl_port_update_callback;
-    disp_drv.draw_buf = &disp_buf;
-    disp_drv.user_data = panel_handle;
-    lv_disp_t *disp = lv_disp_drv_register(&disp_drv);
+    // Reset the display
+    //ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
+
+    // Initialize LCD panel
+    //ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
+
+    // Turn on backlight (Different LCD screens may need different levels)
+    ESP_ERROR_CHECK(gpio_set_level(WORKSTATION_LCD_PIN_SWITCH, 1));
 
 }
 
 void WorkstationLcdMain(void){
-  u8g2_ClearBuffer(&u8g2);
+  
 
-  u8g2_SetFont(&u8g2, u8g2_font_ncenB14_tr);
-	u8g2_DrawStr(&u8g2, 0,15,"Hello World!");
+  u8g2_ClearBuffer(&u8g2);
+  u8g2_SetFont(&u8g2,u8g2_font_fur20_tr);
+  u8g2_DrawStr(&u8g2,2,22,"Hello World!");
+  u8g2_DrawFrame(&u8g2,3,7,25,15);
+ 
   u8g2_SendBuffer(&u8g2);
+    
+  
   ESP_LOGI(TAG, "Sent buffer");
 }
 
 static void lcd_task(void* arg){
+  
   while (1) {
     WorkstationLcdMain();
-    vTaskDelay(10);
+    //vTaskDelay(10);
   }
 }

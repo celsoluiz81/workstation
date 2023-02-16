@@ -1,0 +1,40 @@
+[1/19] Performing build step for 'bootloader'
+[1/1] cd /Users/celsoluiz81/Embedded/workstation/build/bootloader/esp-idf/esptool_py && /Users/celsoluiz81/.espressif/python_env/idf5.1_py3.9_env/bin/python /Users/celsoluiz81/Embedded/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /Users/celsoluiz81/Embedded/workstation/build/bootloader/bootloader.bin
+Bootloader binary size 0x66c0 bytes. 0x940 bytes (8%) free.
+[2/17] Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj
+FAILED: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj 
+/Users/celsoluiz81/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.1-dev-1264-g1c84cfde14\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/Users/celsoluiz81/Embedded/workstation/build/config -I/Users/celsoluiz81/Embedded/workstation/components/lcd/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/newlib/platform_include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/freertos/esp_additions/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/include/soc -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/heap/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/log/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/soc/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/soc/esp32/. -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/soc/esp32/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal/esp32/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal/platform_port/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_rom/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_rom/include/esp32 -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_rom/esp32 -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_common/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_system/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_system/port/soc -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_system/port/include/private -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/xtensa/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/xtensa/esp32/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/include/apps -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/include/apps/sntp -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/lwip/src/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/port/esp32/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/lwip/port/esp32/include/arch -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/port/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/mbedtls/library -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/driver/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/driver/deprecated -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/driver/esp32/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_pm/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_ringbuf/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_lcd/include -I/Users/celsoluiz81/Embedded/esp/esp-idf/components/esp_lcd/interface -I/Users/celsoluiz81/Embedded/workstation/components/u8g2/csrc -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/Users/celsoluiz81/Embedded/workstation=. -fmacro-prefix-map=/Users/celsoluiz81/Embedded/esp/esp-idf=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj -MF esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj.d -o esp-idf/lcd/CMakeFiles/__idf_lcd.dir/workstation_lcd.c.obj -c /Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c
+/Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c: In function 'WorkstationLcdMain':
+/Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c:158:16: error: incompatible type for argument 1 of 'u8g2_SetFont'
+  158 |   u8g2_SetFont(u8g2,u8g2_font_fur20_tr);
+      |                ^~~~
+      |                |
+      |                u8g2_t {aka struct u8g2_struct}
+In file included from /Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c:18:
+/Users/celsoluiz81/Embedded/workstation/components/lcd/../u8g2/csrc/u8g2.h:1644:27: note: expected 'u8g2_t *' {aka 'struct u8g2_struct *'} but argument is of type 'u8g2_t' {aka 'struct u8g2_struct'}
+ 1644 | void u8g2_SetFont(u8g2_t *u8g2, const uint8_t  *font);
+      |                   ~~~~~~~~^~~~
+/Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c:159:16: error: incompatible type for argument 1 of 'u8g2_DrawStr'
+  159 |   u8g2_DrawStr(u8g2,2,22,"Hello World!");
+      |                ^~~~
+      |                |
+      |                u8g2_t {aka struct u8g2_struct}
+In file included from /Users/celsoluiz81/Embedded/workstation/components/lcd/workstation_lcd.c:18:
+/Users/celsoluiz81/Embedded/workstation/components/lcd/../u8g2/csrc/u8g2.h:1654:34: note: expected 'u8g2_t *' {aka 'struct u8g2_struct *'} but argument is of type 'u8g2_t' {aka 'struct u8g2_struct'}
+ 1654 | u8g2_uint_t u8g2_DrawStr(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, const char *str);
+      |                          ~~~~~~~~^~~~
+[3/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[4/17] Building C object esp-idf/comm/CMakeFiles/__idf_comm.dir/workstation_uart.c.obj
+[5/17] Building C object esp-idf/joystick/CMakeFiles/__idf_joystick.dir/workstation_joystick.c.obj
+[6/17] Building C object esp-idf/motion/CMakeFiles/__idf_motion.dir/workstation_motion.c.obj
+[7/17] Building C object esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/csrc/u8g2_esp32_hal.c.obj
+/Users/celsoluiz81/Embedded/workstation/components/u8g2/csrc/u8g2_esp32_hal.c:21: warning: "SPI_HOST" redefined
+   21 | #define SPI_HOST                        SPI3_HOST
+      | 
+In file included from /Users/celsoluiz81/Embedded/esp/esp-idf/components/driver/include/driver/spi_common.h:13,
+                 from /Users/celsoluiz81/Embedded/esp/esp-idf/components/driver/include/driver/spi_master.h:12,
+                 from /Users/celsoluiz81/Embedded/workstation/components/u8g2/csrc/u8g2_esp32_hal.c:9:
+/Users/celsoluiz81/Embedded/esp/esp-idf/components/hal/include/hal/spi_types.h:77: note: this is the location of the previous definition
+   77 | #define SPI_HOST    SPI1_HOST
+      | 
+ninja: build stopped: subcommand failed.

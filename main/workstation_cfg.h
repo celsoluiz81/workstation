@@ -7,11 +7,12 @@
 #define WORKSTATION_MOTION_IN_PIN     GPIO_NUM_32
 
 /* LCD Pins */
-#define WORKSTATION_LCD_PIN_RS        GPIO_NUM_4 /* CS */
-#define WORKSTATION_LCD_PIN_RW        GPIO_NUM_19 /* MOSI */
+#define WORKSTATION_LCD_PIN_RS        GPIO_NUM_5 /* CS */
+#define WORKSTATION_LCD_PIN_RW        GPIO_NUM_23 /* MOSI */
 #define WORKSTATION_LCD_PIN_E         GPIO_NUM_18 /* CLK */
-#define WORKSTATION_LCD_PIN_RST       GPIO_NUM_3
-#define WORKSTATION_LCD_PIN_SWITCH    GPIO_NUM_22
+#define WORKSTATION_LCD_PIN_RST       GPIO_NUM_22
+#define WORKSTATION_LCD_PIN_SWITCH    GPIO_NUM_21
+#define LCD_PIXEL_CLOCK_HZ            (20 * 1000 * 1000)
 
 /* Joystick Pins */
 #define WORKSTATION_JOYSTICK_PIN_CLK  GPIO_NUM_34
@@ -26,7 +27,8 @@
 #define LED_GPIO                      GPIO_NUM_2
 
 /* UART Buffer Size for communication with Arduino */
-#define UART_BUFFER_SIZE              1024
+#define UART_RX_BUFFER_SIZE           1024
+#define UART_TX_BUFFER_SIZE           1024
 #define UART_PORT_NUM                 0
 #define UART_BAUD_RATE                115200
 #define TASK_STACK_SIZE               2048
